@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Braintree Billing</name>
+    <key>latterdatebraintreebilling</key>
+    <description>A billing plugin that interfaces with Braintree</description>
+    <author>Brian Lamb</author>
+    <authorEmail>fusani.applications@gmail.com</authorEmail>
+    <authorUrl>http://www.fusaniapplications.com</authorUrl>
+    <developerKey>094e56b1aab4eee9007089ca4ccb7532</developerKey>
+    <build>1</build>
+    <copyright>(C) 2014 Fusani Applications LLC. All rights reserved.</copyright>
+    <license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>
