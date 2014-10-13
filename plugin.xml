@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
     <name>Braintree Billing</name>
-    <key>latterdatebraintreebilling</key>
+    <key>latter_date_braintree_billing</key>
     <description>A billing plugin that interfaces with Braintree</description>
     <author>Brian Lamb</author>
     <authorEmail>fusani.applications@gmail.com</authorEmail>
