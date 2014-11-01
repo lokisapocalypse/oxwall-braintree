@@ -19,10 +19,10 @@ class billingbraintree_CTRL_Admin extends ADMIN_CTRL_Abstract
             $this->redirect();
         }
 
-        $adapter = new billingbraintree_CLASS_BraintreeAdapter();
+        $adapter = new BILLINGBRAINTREE_CLASS_BraintreeAdapter();
         $this->assign('logoUrl', $adapter->getLogoUrl());
 
-        $gateway = $billingService->findGatewayByKey(billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY);
+        $gateway = $billingService->findGatewayByKey(BILLINGBRAINTREE_CLASS_BraintreeAdapter::GATEWAY_KEY);
         $this->assign('gateway', $gateway);
 
         $this->assign('activeCurrency', $billingService->getActiveCurrency());
@@ -43,7 +43,7 @@ class BraintreeConfigForm extends Form
 
         $language = OW::getLanguage();
         $billingService = BOL_BillingService::getInstance();
-        $gwKey = billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY;
+        $gwKey = BILLINGBRAINTREE_CLASS_BraintreeAdapter::GATEWAY_KEY;
 
         $business = new TextField('business');
         $business->setValue($billingService->getGatewayConfigValue($gwKey, 'business'));
@@ -72,7 +72,7 @@ class BraintreeConfigForm extends Form
         $values = $this->getValues();
 
         $billingService = BOL_BillingService::getInstance();
-        $gwKey = billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY;
+        $gwKey = BILLINGBRAINTREE_CLASS_BraintreeAdapter::GATEWAY_KEY;
 
         $billingService->setGatewayConfigValue($gwKey, 'business', $values['business']);
         $billingService->setGatewayConfigValue($gwKey, 'publicKey', $values['publicKey']);
