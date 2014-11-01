@@ -1,6 +1,6 @@
 <?php
 
-class LATTERDATEBRAINTREEBILLING_CTRL_Admin extends ADMIN_CTRL_Abstract
+class billingbraintree_CTRL_Admin extends ADMIN_CTRL_Abstract
 {
     public function index()
     {
@@ -15,14 +15,14 @@ class LATTERDATEBRAINTREEBILLING_CTRL_Admin extends ADMIN_CTRL_Abstract
         // if we are making changes to the configuration form
         if (OW::getRequest()->isPost() && $braintreeConfigForm->isValid($_POST)) {
             $result = $braintreeConfigForm->process();
-            OW::getFeedback()->info($language->text('latterdatebraintreebilling', 'settings_updated'));
+            OW::getFeedback()->info($language->text('billingbraintree', 'settings_updated'));
             $this->redirect();
         }
 
-        $adapter = new LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter();
+        $adapter = new billingbraintree_CLASS_BraintreeAdapter();
         $this->assign('logoUrl', $adapter->getLogoUrl());
 
-        $gateway = $billingService->findGatewayByKey(LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter::GATEWAY_KEY);
+        $gateway = $billingService->findGatewayByKey(billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY);
         $this->assign('gateway', $gateway);
 
         $this->assign('activeCurrency', $billingService->getActiveCurrency());
@@ -30,7 +30,7 @@ class LATTERDATEBRAINTREEBILLING_CTRL_Admin extends ADMIN_CTRL_Abstract
         $supported = $billingService->currencyIsSupported($gateway->currencies);
         $this->assign('currSupported', $supported);
 
-        $this->setPageHeading(OW::getLanguage()->text('latterdatebraintreebilling', 'config_page_heading'));
+        $this->setPageHeading(OW::getLanguage()->text('billingbraintree', 'config_page_heading'));
         $this->setPageHeadingIconClass('ow_ic_app');
     }
 }
@@ -43,7 +43,7 @@ class BraintreeConfigForm extends Form
 
         $language = OW::getLanguage();
         $billingService = BOL_BillingService::getInstance();
-        $gwKey = LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter::GATEWAY_KEY;
+        $gwKey = billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY;
 
         $business = new TextField('business');
         $business->setValue($billingService->getGatewayConfigValue($gwKey, 'business'));
@@ -63,7 +63,7 @@ class BraintreeConfigForm extends Form
 
         // submit
         $submit = new Submit('save');
-        $submit->setValue($language->text('latterdatebraintreebilling', 'btn_save'));
+        $submit->setValue($language->text('billingbraintree', 'btn_save'));
         $this->addElement($submit);
     }
 
@@ -72,7 +72,7 @@ class BraintreeConfigForm extends Form
         $values = $this->getValues();
 
         $billingService = BOL_BillingService::getInstance();
-        $gwKey = LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter::GATEWAY_KEY;
+        $gwKey = billingbraintree_CLASS_BraintreeAdapter::GATEWAY_KEY;
 
         $billingService->setGatewayConfigValue($gwKey, 'business', $values['business']);
         $billingService->setGatewayConfigValue($gwKey, 'publicKey', $values['publicKey']);

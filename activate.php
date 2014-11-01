@@ -1,2 +1,2 @@
 <?php
-BOL_BillingService::getInstance()->activateGateway('latterdatebraintreebilling');
+BOL_BillingService::getInstance()->activateGateway('billingbraintree');

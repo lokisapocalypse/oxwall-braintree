@@ -1,8 +1,8 @@
 <?php
 
-class LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter implements OW_BillingAdapter
+class BILLINGBRAINTREE_CLASS_BraintreeAdapter implements OW_BillingAdapter
 {
-    const GATEWAY_KEY = 'latterdatebraintreebilling';
+    const GATEWAY_KEY = 'billingbraintree';
 
 /*
         \Braintree_Configuration::environment('sandbox');
@@ -17,7 +17,7 @@ class LATTERDATEBRAINTREEBILLING_CLASS_BraintreeAdapter implements OW_BillingAda
 
     public function getLogoUrl()
     {
-        $plugin = OW::getPluginManager()->getPlugin('latterdatebraintreebilling');
+        $plugin = OW::getPluginManager()->getPlugin('billingbraintree');
         return $plugin->getStaticUrl() . 'img/braintree.png';
     }
 

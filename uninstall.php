@@ -1,9 +1,9 @@
 <?php
 $billingService = BOL_BillingService::getInstance();
 
-$billingService->deleteConfig('latterdatebraintreebilling', 'business');
-$billingService->deleteConfig('latterdatebraintreebilling', 'publicKey');
-$billingService->deleteConfig('latterdatebraintreebilling', 'privateKey');
-$billingService->deleteConfig('latterdatebraintreebilling', 'sandboxMode');
+$billingService->deleteConfig('billingbraintree', 'business');
+$billingService->deleteConfig('billingbraintree', 'publicKey');
+$billingService->deleteConfig('billingbraintree', 'privateKey');
+$billingService->deleteConfig('billingbraintree', 'sandboxMode');
 
-$billingService->deleteGateway('latterdatebraintreebilling');
+$billingService->deleteGateway('billingbraintree');

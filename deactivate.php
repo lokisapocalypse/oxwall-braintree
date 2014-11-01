@@ -1,2 +1,2 @@
 <?php
-BOL_BillingService::getInstance()->deactivateGateway('latterdatebraintreebilling');
+BOL_BillingService::getInstance()->deactivateGateway('billingbraintree');
