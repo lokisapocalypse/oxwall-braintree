@@ -4,7 +4,7 @@ $billingService = BOL_BillingService::getInstance();
 
 $gateway = new BOL_BillingGateway();
 $gateway->gatewayKey = 'billingbraintree';
-$gateway->adapterClassName = 'BILLINGBRAINTREE_CLASS_PaypalAdapter';
+$gateway->adapterClassName = 'BILLINGBRAINTREE_CLASS_BraintreeAdapter';
 $gateway->active = 0;
 $gateway->mobile = 0;
 $gateway->recurring = 1;
