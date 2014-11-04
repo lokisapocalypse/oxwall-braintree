@@ -17,7 +17,7 @@ class BILLINGBRAINTREE_CLASS_BraintreeAdapter implements OW_BillingAdapter
 
     public function getOrderFormUrl()
     {
-        throw new Exception('Not yet implemented');
+        return OW::getRouter()->urlForRoute('billing_braintree_order_form');
     }
 
     public function prepareSale(BOL_BillingSale $sale)

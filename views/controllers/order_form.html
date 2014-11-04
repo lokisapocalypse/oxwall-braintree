@@ -1,0 +1,70 @@
+<form id="braintree-subscribe" action="" method="post" role="form">
+    <div class="form-group">
+        <label for="{$fields.firstName.attributes.id}">{$fields.firstName.label}</label>
+        <input {foreach from=$fields.firstName.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.lastName.attributes.id}">{$fields.lastName.label}</label>
+        <input {foreach from=$fields.lastName.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.number.attributes.id}">{$fields.number.label}</label>
+        <input {foreach from=$fields.number.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.month.attributes.id}">{$fields.month.label}</label>
+        <select {foreach from=$fields.month.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+            {foreach from=$fields.month.options.value_options key='optionValue' item='option'}
+                <option value="{$optionValue}">{$option}</option>
+            {/foreach}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.year.attributes.id}">{$fields.year.label}</label>
+        <select {foreach from=$fields.year.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+            {foreach from=$fields.year.options.value_options key='optionValue' item='option'}
+                <option value="{$optionValue}">{$option}</option>
+            {/foreach}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.securityCode.attributes.id}">{$fields.securityCode.label}</label>
+        <input {foreach from=$fields.securityCode.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.addressOne.attributes.id}">{$fields.addressOne.label}</label>
+        <input {foreach from=$fields.addressOne.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.addressTwo.attributes.id}">{$fields.addressTwo.label}</label>
+        <input {foreach from=$fields.addressTwo.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.city.attributes.id}">{$fields.city.label}</label>
+        <input {foreach from=$fields.city.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.stateProvince.attributes.id}">{$fields.stateProvince.label}</label>
+        <input {foreach from=$fields.stateProvince.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.country.attributes.id}">{$fields.country.label}</label>
+        <select {foreach from=$fields.country.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+            {foreach from=$fields.country.options.value_options key='optionValue' item='option'}
+                <option value="{$optionValue}">{$option}</option>
+            {/foreach}
+        </select>
+    </div>
+    <div class="form-group">
+        <label>
+            {foreach from=$fields.plan.options.value_options key='optionValue' item='option'}
+                <input {foreach from=$fields.plan.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach} value="{$optionValue}"> {$option}
+            {/foreach}
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="{$fields.zip.attributes.id}">{$fields.zip.label}</label>
+        <input {foreach from=$fields.zip.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>
+    </div>
+    <button {foreach from=$fields.submit.attributes key='name' item='attribute'}{$name}="{$attribute}" {/foreach}>{$fields.submit.label}</button>
+</form>

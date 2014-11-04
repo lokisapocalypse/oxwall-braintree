@@ -1,0 +1,13 @@
+{
+    "name": "latter-date/braintree-billing",
+    "description": "Braintree billing plugin for oxwall",
+    "homepage": "http://www.braintree.com",
+    "require": {
+        "braintree/braintree_php" : "2.27.1",
+        "php": ">=5.3.3",
+        "zendframework/zend-form": "2.*",
+        "zendframework/zend-i18n": "2.*",
+        "zendframework/zend-servicemanager": "2.*",
+        "zendframework/zend-validator": "2.*"
+    }
+}
