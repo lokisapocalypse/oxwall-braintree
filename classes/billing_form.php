@@ -9,16 +9,21 @@ use Zend\InputFilter\InputFilterProviderInterface;
 
 class BILLINGBRAINTREE_CLASS_BillingForm extends Form
 {
+    protected $braintreeAdapter;
+
     /**
      * This function creates the billing form. Because we aren't using Zend stuff for
      * models, we create our own validators here.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(BILLINGBRAINTREE_CLASS_BraintreeAdapter $adapter)
     {
         // create the zend form
         parent::__construct();
+
+        // save the braintree adapter
+        $this->braintreeAdapter = $adapter;
 
         // make it a bootstrap form
         $this->setAttribute('class', 'form-horizontal');
@@ -353,7 +358,13 @@ class BILLINGBRAINTREE_CLASS_BillingForm extends Form
      */
     protected function plans()
     {
-        return ['Plan A' => 'Plan A', 'Plan B' => 'Plan B', 'Plan C' => 'Plan C'];
+        $plans = [];
+
+        foreach ($this->braintreeAdapter->plans() as $plan) {
+            $plans[$plan->id] = $plan->description.' ($'.sprintf('%01.2f', $plan->price).')';
+        }
+
+        return $plans;
     }
 
     /**
